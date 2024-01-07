@@ -179,7 +179,13 @@ Run the application in its default port (Django: 8000).
 
 ## Run
 ```
+# Create a virtual environment:
+python -m venv myenv
+
+#For installing the requrirements:
 pip install -r requirements.txt
+
+# To run the project:
 cd app
 python manage.py runserver
 ```
