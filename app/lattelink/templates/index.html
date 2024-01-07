@@ -1,0 +1,279 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% comment %} <div style="margin-left: 20%;">
+    <h3>welcome</h3>
+    {% if user.is_authenticated %}
+                Signed in as <strong>{{ user.username }}</strong>.
+    {% else %}
+                Not signed in.
+     {% endif %}
+     {% for i in all_item %}
+        <h4>{{ i.title }}</h4>
+    {% endfor %}
+    {% for i in all_category %}
+        <h4>{{ i.category_name }}</h4>
+    {% endfor %}
+</div> {% endcomment %}
+
+{% comment %} Home page {% endcomment %}
+
+<div style="margin-top:20px; width: 46%;" id='home-page'>
+
+    <section class="main_home">
+        <div style='padding-top: 1rem; padding-left: 1.5rem;' class="home-title">
+            <h3>My Account</h3>
+            <p>Here you can Viewing your account information</p>
+        </div>
+            <div class="profile">
+                <div class="img-account">
+                    <img src={{user.image}} alt="profile image">
+                    <p>Profile Picture</p>
+                <!-- </div> -->
+                <!-- <div class="profile-input"> -->
+                    <div class="input-1">
+                        <p>Name</p>
+                        <input type="text" value={{user.username}} disabled>
+                    </div>
+                    <div>
+                        <p>Email</p>
+                        <input type="email" value={{user.email}} disabled>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+
+{% comment %} History page {% endcomment %}
+<div style="margin-top:20px;  width: 46%;" id='history-page'>
+    <section class="main_home">
+        <!-- <div style='padding-top: 1rem; padding-left: 1.5rem;' class="home-title"> -->
+            <table id="myTable">
+                <thead>
+                  <tr>
+                    <th style='border-radius: 22px 0 0 0;'>Username adding</th>
+                    <th>Item</th>
+                    <th style='border-radius: 0 22px 0 0;'>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for i in all_item %}
+                        <tr>
+                            <td>{{ i.user_add }}</td>
+                            <td>{{ i.title }}</td>
+                            <td>{{ i.date }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+        <!-- </div> -->
+</div>
+
+{% comment %} Order page {% endcomment %}
+
+<div style="margin-top:20px;  width: 80%;" id='order-page'>
+    <section class="white-area-order-page">
+
+        <main class='main_home'>
+            <table>
+                <thead>
+                  <tr style="width: 100%;">
+                    <th style='border-radius: 22px 0 0 0;'>Order ID</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th style='border-radius: 0 22px 0 0'>Payment Method</th>
+                  </tr>
+                </thead>
+                <tbody class="table_of_order">
+                   <!-- <tr>
+                    <td>1</td>
+                    <td>27/9/2023</td>
+                    <td>$70</td>
+                    <td>cash</td>
+                   </tr> -->
+                </tbody>
+              </table>
+        </main>
+    </section>
+
+</div>
+
+{% comment %} menu page {% endcomment %}
+
+<div style="margin-top:20px;" id='menu-page'>
+        <section class="white-area">
+            <main class='main_menu'>
+                <div class="title">
+                    <h1>Choose Categories</h1>
+                    <div class="search-bar">
+                        <input type="text" class="search-input" name="item_search" placeholder="Search Menu" onkeyup="search()">
+                        <span class="material-symbols-outlined">search</span>
+                        
+                    </div>
+                    <button class="display_side_bar_lift" id="display_side_bar_lift"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list-check" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0m0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0m0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
+                      </svg></button>
+                    <div>
+                        <button class="show-order">Order</button>
+                    </div>
+                </div>
+                <div >
+                    <ul class="nav-div">
+                        <li  id=''><a  class='a' data-page='All' href='#' style='text-decoration: none;'>All</a></li>
+                    {% for i in all_category %}
+                        <li  id=''><a  class='a' data-page='{{ i.category_name }}'  href='#' style='text-decoration: none;'>{{ i.category_name }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <!-- my work -->
+                <div class="All-product">
+                <div id='All' class='www'>
+                    <div class='flex-container' style="
+                    grid-template-columns: 50% 50%;"> 
+                        {% for i in all_item %}
+                                <div class="card-group">
+                                    <div class="card" style="width: 18rem; border-radius: 10;">
+                                        <img class="img_sidebar" src="{{ i.image }}" alt="Product Image" style="
+                                       width:200px;
+                                       height:200px;
+                                      ">
+                                        <div class="card-body">
+                                            <h3 id="title_sidebar" class="productname" style="margin:4px; font-size: 2rem;">{{ i.title }}</h3>
+                                          <p class="card-text">{{ i.description }}</p>
+                                          <p>price: $<span class="price_sidebar">{{ i.price }}</span></p>
+                                          <p class="quantity">Quantity: {{ i.Quantity }}</p>
+                                          <button class="myButton">Add</button>
+                                        </div>
+                                      </div>
+                                      
+                                    </div>                
+                        {% endfor %}
+                    </div>
+                </div>
+            
+
+                    <div id='Drinks' class='www' style='display: none;'>
+
+                        <div class='flex-container' style="
+                        grid-template-columns: 50% 50%;">
+                            {% for i in all_item %}
+                                {% if i.category_id == 1 %}
+                                <div class="card-group">
+                                    <div class="card" style="width: 18rem; border-radius: 10;">
+                                        <img class="img_sidebar" src="{{ i.image }}" alt="Product Image" style="
+                                       width:200px;
+                                       height:200px;
+                                      ">
+                                        <div class="card-body">
+                                            <h3 id="title_sidebar" class="productname" style="margin:4px; font-size: 2rem;">{{ i.title }}</h3>
+                                          <p class="card-text">{{ i.description }}</p>
+                                          <p>price: $<span class="price_sidebar">{{ i.price }}</span></p>
+                                          <p class="quantity">Quantity: {{ i.Quantity }}</p>
+                                          <button class="myButton">Add</button>
+                                        </div>
+                                      </div>
+                                      
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div id='Snacks' class='www' style='display: none;'>
+                        <div class='flex-container' style="
+                        grid-template-columns: 50% 50%;">
+                            {% for i in all_item %}
+                                {% if all_item.category_id == 2 %}
+                                <div class="card-group">
+                                    <div class="card" style="width: 18rem; border-radius: 10;">
+                                        <img class="img_sidebar" src="{{ i.image }}" alt="Product Image" style="
+                                       width:200px;
+                                       height:200px;
+                                      ">
+                                        <div class="card-body">
+                                            <h3 id="title_sidebar" class="productname" style="margin:4px; font-size: 2rem;">{{ i.title }}</h3>
+                                          <p class="card-text">{{ i.description }}</p>
+                                          <p>price: $<span class="price_sidebar">{{ i.price }}</span></p>
+                                          <p class="quantity">Quantity: {{ i.Quantity }}</p>
+                                          <button class="myButton">Add</button>
+                                        </div>
+                                      </div>
+                                      
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div id='Desserts' class='www' style='display: none;'>
+                        <div class='flex-container' style="
+                        grid-template-columns: 50% 50%;">
+                            {% for i in all_item %}
+                                {% if i.category_id == 3 %}
+                                <div class="card-group">
+                                    <div class="card" style="width: 18rem; border-radius: 10;">
+                                        <img class="img_sidebar" src="{{ i.image }}" alt="Product Image" style="
+                                       width:200px;
+                                       height:200px;
+                                      ">
+                                        <div class="card-body">
+                                            <h3 id="title_sidebar" class="productname" style="margin:4px; font-size: 2rem;">{{ i.title }}</h3>
+                                          <p class="card-text">{{ i.description }}</p>
+                                          <p>price: $<span class="price_sidebar">{{ i.price }}</span></p>
+                                          <p class="quantity">Quantity: {{ i.Quantity }}</p>
+                                          <button class="myButton">Add</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                </main>
+                
+                <section class="higher-lower">
+                    <div class="left-sidbar">
+                        <button class="arrow" id="arrow" style="color: blue;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+                          </svg></button>
+                        <h3 class="order_list_word">Order List</h3>
+                        <!-- <div class="order" data-price="20">
+                            <img src="img/coffee-2714970_1920.jpg" alt="Product Image" width="100px" height="100px">
+                            <div class="item-info">
+                                <p>Product name</p>
+                                <h5>$10</h5>
+                                <div class="item-quantity no-select">
+                                    <span class="material-symbols-outlined decrement">do_not_disturb_on</span>
+                                    <p class="counter">1</p>
+                                    <span class="material-symbols-outlined increment">add_circle</span>
+                                </div>
+                            </div>
+                        </div>                      -->
+                    </div>
+
+                    
+                    <div class="lower-sidebar">
+                        <div class="subtotal div-1">
+                            <h3>Subtotal</h3>
+                            <p></p>
+                        </div>
+                        <div class="discount div-2">
+                            <h3>Disc</h3>
+                            <p></p>
+                        </div>
+                        <hr>
+                        <div class="total div-1">
+                            <h3>Total</h3>
+                            <p></p>
+                        </div>
+                        <input type="submit" value="Clear All" class="btn_clear_all">
+                        <input type="submit" value="Process to payment" class="btn">
+                    </div>                        
+                    </div>
+            </section>
+        </section>
+
+</div>
+{% endblock %}

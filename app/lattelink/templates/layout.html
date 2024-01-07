@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;600&family=Poppins:wght@900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"  rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Latte Link</title>
+    {% block script %}
+    {% endblock %}
+    <script>
+      function showPage(page) {
+
+        // Hide all of the divs:
+        document.querySelectorAll('.www').forEach(div => {
+            div.style.display = 'none';
+        });
+    
+        // Show the div provided in the argument
+        document.querySelector(`#${page}`).style.display = 'block';
+        console.log(`#${page}`);
+        
+    }
+    
+    // Wait for page to loaded:
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // Select all buttons
+        document.querySelectorAll('.a').forEach(a => {
+    
+            // When a button is clicked, switch to that page
+            a.onclick = function() {
+                showPage(this.dataset.page);
+            }
+        })
+    });
+    </script>
+</head>
+<body>
+  <button  class="display_side_bar_right" style="margin-left: 5%;">☰</button>
+    <div class="sidebar" id="sidebar">
+      <div class="img">
+          <img src="{{user.image}}" alt="Afetar">
+          <div class="account">
+              <h6>{{user.username}}</h6>
+              <p class="p-div">Cashier</p>
+          </div>
+      </div>
+      
+          <section class="icons-position">
+              <div class="navigation">
+                  <ul>
+                      <li class="list">
+                          <a id="home" href="#">
+                              <span class="icon"><i class="material-symbols-outlined ">home</i></span>
+                              <span class="tital">Home </span>
+                          </a>
+                      </li>
+                      <li class="list active">
+                          <a id='menu' href="#">
+                              <span class="icon"><i class="material-symbols-outlined">restaurant_menu</i></span>
+                              <span class="tital">Menu </span>
+                          </a>
+                      </li>
+                      <li class="list">
+                          <a id='order' href="#">
+                              <span class="icon"><i class="material-symbols-outlined">account_balance_wallet</i></span>
+                              <span class="tital">Order </span>
+                          </a>
+                      </li>
+                      <li class="list">
+                          <a id='history' href="#">
+                              <span class="icon"><i class="material-symbols-outlined">schedule</i></span>
+                              <span class="tital">History </span>
+                          </a>
+                      </li>
+                      
+                      <li class="list">
+                        <a href="{% url 'logout' %}">
+                            <span class="icon"><i class="material-symbols-outlined">logout</i></span>
+                            <span class="tital">Logout </span>
+                        </a>
+                    </li>
+                  </ul>
+              </div>
+      </section>
+</div>
+    {% block body %}
+    {% endblock %}  
+    <script src="{% static 'index.js' %}"></script>
+    <script src="{% static 'index2.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+</body>
+</html>
