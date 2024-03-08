@@ -113,7 +113,11 @@
                         <button class="show-order">Order</button>
                     </div>
                 </div>
-                <div >
+                <div style="top: -1.3rem;
+                position: sticky;
+                z-index: 100;
+                background-color: #E3E2E2;
+                padding: 2%;">
                     <ul class="nav-div">
                         <li  id=''><a  class='a' data-page='All' href='#' style='text-decoration: none;'>All</a></li>
                     {% for i in all_category %}
@@ -132,6 +136,7 @@
                                         <img class="img_sidebar" src="{{ i.image }}" alt="Product Image" style="
                                        width:200px;
                                        height:200px;
+                                       margin-top: 10%;
                                       ">
                                         <div class="card-body">
                                             <h3 id="title_sidebar" class="productname" style="margin:4px; font-size: 2rem;">{{ i.title }}</h3>
@@ -158,6 +163,7 @@
                                         <img class="img_sidebar" src="{{ i.image }}" alt="Product Image" style="
                                        width:200px;
                                        height:200px;
+                                       margin-top: 10%;
                                       ">
                                         <div class="card-body">
                                             <h3 id="title_sidebar" class="productname" style="margin:4px; font-size: 2rem;">{{ i.title }}</h3>
@@ -184,6 +190,7 @@
                                         <img class="img_sidebar" src="{{ i.image }}" alt="Product Image" style="
                                        width:200px;
                                        height:200px;
+                                       margin-top: 10%;
                                       ">
                                         <div class="card-body">
                                             <h3 id="title_sidebar" class="productname" style="margin:4px; font-size: 2rem;">{{ i.title }}</h3>
@@ -210,6 +217,7 @@
                                         <img class="img_sidebar" src="{{ i.image }}" alt="Product Image" style="
                                        width:200px;
                                        height:200px;
+                                       margin-top: 10%;
                                       ">
                                         <div class="card-body">
                                             <h3 id="title_sidebar" class="productname" style="margin:4px; font-size: 2rem;">{{ i.title }}</h3>

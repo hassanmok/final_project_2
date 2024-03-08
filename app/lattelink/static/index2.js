@@ -47,7 +47,7 @@ function search(){
         //
         item.innerHTML = `
             <div class="order" data-price="${price}">
-            <button type="button" class="btn btn-danger" style="padding: 0.70rem 1.6875rem; margin-top: 0;">X</button>
+            <button type="button" class="btn btn-danger" style="padding: 0.70rem 1.6875rem; margin-top: 0; margin-right: 4%;">X</button>
               <img src="${imageSrc}">
               <div class="item-info">
                 <p>${title}</p>
