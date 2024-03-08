@@ -1100,3 +1100,20 @@ tr {
         }
 }
 @media (max-width:576px){}
+
+
+
+
+
+
+
+
+
+
+
+.deleted_element{
+    left: 94%;
+    margin-bottom: 6%;
+    color: red;
+
+}

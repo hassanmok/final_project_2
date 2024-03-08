@@ -8,56 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     load_menu('menu');
     
     
-    
 
-
-
-    // Function to update the subtotal, discount, and total
-    /*   function updateValues() {
-        let subtotal = 0;
-
-        counters.forEach((counter, index) => {
-            let quantity = parseInt(counter.textContent);
-            let price = 10; // Replace with the actual product price
-            subtotal += quantity * price;
-        });
-
-        let discount = 10; // Replace with the actual discount amount
-        let total = subtotal - discount;
-
-        subtotalElement.textContent = "$" + subtotal;
-        discountElement.textContent = "-$" + discount;
-        totalElement.textContent = "$" + total;
-    }
-    */
-
-    // Event listener for increment buttons
-   /* incrementButtons.forEach((button, index) => {
-        button.addEventListener("click", function() {
-            let currentValue = parseInt(counters[index].textContent);
-            currentValue++;
-            counters[index].textContent = currentValue;
-            updateValues();
-        });
-    });*/
-
-
-    // Event listener for decrement buttons
-  /*  decrementButtons.forEach((button, index) => {
-        button.addEventListener("click", function() {
-            let currentValue = parseInt(counters[index].textContent);
-            if (currentValue > 1) {
-                currentValue--;
-                counters[index].textContent = currentValue;
-                updateValues();
-            }
-        });
-    });*/
-
-    // Event listener for the "Process to payment" button
-
-    // Initialize values
-    //updateValues();
 });
 
 function load_page()

@@ -34,11 +34,11 @@
                 <!-- </div> -->
                 <!-- <div class="profile-input"> -->
                     <div class="input-1">
-                        <p>Name</p>
+                        <p>Name:</p>
                         <input type="text" value={{user.username}} disabled>
                     </div>
                     <div>
-                        <p>Email</p>
+                        <p>Email:</p>
                         <input type="email" value={{user.email}} disabled>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                    {% for i in all_item %}
+                    {% for i in all_item reversed %}
                         <tr>
                             <td>{{ i.user_add }}</td>
                             <td>{{ i.title }}</td>
@@ -87,12 +87,6 @@
                   </tr>
                 </thead>
                 <tbody class="table_of_order">
-                   <!-- <tr>
-                    <td>1</td>
-                    <td>27/9/2023</td>
-                    <td>$70</td>
-                    <td>cash</td>
-                   </tr> -->
                 </tbody>
               </table>
         </main>
@@ -143,7 +137,6 @@
                                             <h3 id="title_sidebar" class="productname" style="margin:4px; font-size: 2rem;">{{ i.title }}</h3>
                                           <p class="card-text">{{ i.description }}</p>
                                           <p>price: $<span class="price_sidebar">{{ i.price }}</span></p>
-                                          <p class="quantity">Quantity: {{ i.Quantity }}</p>
                                           <button class="myButton">Add</button>
                                         </div>
                                       </div>
@@ -170,7 +163,7 @@
                                             <h3 id="title_sidebar" class="productname" style="margin:4px; font-size: 2rem;">{{ i.title }}</h3>
                                           <p class="card-text">{{ i.description }}</p>
                                           <p>price: $<span class="price_sidebar">{{ i.price }}</span></p>
-                                          <p class="quantity">Quantity: {{ i.Quantity }}</p>
+                                        
                                           <button class="myButton">Add</button>
                                         </div>
                                       </div>
@@ -185,7 +178,7 @@
                         <div class='flex-container' style="
                         grid-template-columns: 50% 50%;">
                             {% for i in all_item %}
-                                {% if all_item.category_id == 2 %}
+                                {% if i.category_id == 2 %}
                                 <div class="card-group">
                                     <div class="card" style="width: 18rem; border-radius: 10;">
                                         <img class="img_sidebar" src="{{ i.image }}" alt="Product Image" style="
@@ -196,7 +189,7 @@
                                             <h3 id="title_sidebar" class="productname" style="margin:4px; font-size: 2rem;">{{ i.title }}</h3>
                                           <p class="card-text">{{ i.description }}</p>
                                           <p>price: $<span class="price_sidebar">{{ i.price }}</span></p>
-                                          <p class="quantity">Quantity: {{ i.Quantity }}</p>
+                                          
                                           <button class="myButton">Add</button>
                                         </div>
                                       </div>
@@ -222,7 +215,7 @@
                                             <h3 id="title_sidebar" class="productname" style="margin:4px; font-size: 2rem;">{{ i.title }}</h3>
                                           <p class="card-text">{{ i.description }}</p>
                                           <p>price: $<span class="price_sidebar">{{ i.price }}</span></p>
-                                          <p class="quantity">Quantity: {{ i.Quantity }}</p>
+                                          
                                           <button class="myButton">Add</button>
                                         </div>
                                       </div>
@@ -241,18 +234,6 @@
                             <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
                           </svg></button>
                         <h3 class="order_list_word">Order List</h3>
-                        <!-- <div class="order" data-price="20">
-                            <img src="img/coffee-2714970_1920.jpg" alt="Product Image" width="100px" height="100px">
-                            <div class="item-info">
-                                <p>Product name</p>
-                                <h5>$10</h5>
-                                <div class="item-quantity no-select">
-                                    <span class="material-symbols-outlined decrement">do_not_disturb_on</span>
-                                    <p class="counter">1</p>
-                                    <span class="material-symbols-outlined increment">add_circle</span>
-                                </div>
-                            </div>
-                        </div>                      -->
                     </div>
 
                     
