@@ -8,6 +8,7 @@ Welcome to Lattelink, your go-to Point of Sale (POS) web application for seamles
 
 ### Key Features
 
+
 1. **Simplified Transactions:**
    - Lattelink streamlines the transaction process, allowing for quick and hassle-free customer orders. The intuitive interface ensures that both customers and cashiers can navigate with ease.
 
